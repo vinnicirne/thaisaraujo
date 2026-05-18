@@ -340,42 +340,6 @@ const ImpactQuote = () => (
   </AppSection>
 );
 
-const Authors = () => {
-  const authors = [
-    { name: "Thais Araujo", role: "Psicóloga Especialista" },
-    { name: "Glauce Gajo", role: "Mentora de Autocuidado" },
-    { name: "Claudia Fermiano", role: "Especialista em Inteligência Emocional" }
-  ];
-
-  return (
-    <AppSection>
-      <AppFadeIn>
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-brand-dark mb-4">Conheça as Autoras</h2>
-          <p className="text-brand-medium italic">Unindo ciência e vivência para guiar sua libertação.</p>
-        </div>
-      </AppFadeIn>
-      <div className="grid md:grid-cols-3 gap-8">
-        {authors.map((author, i) => (
-          <AppFadeIn key={i} delay={i * 0.1}>
-            <div className="text-center group">
-              <div className="w-48 h-48 mx-auto mb-6 rounded-[2rem] bg-brand-light overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 border-2 border-transparent group-hover:border-brand-gold shadow-xl">
-                 <img 
-                  src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${author.name}`}
-                  alt={author.name}
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-brand-dark">{author.name}</h3>
-              <p className="text-brand-gold font-medium uppercase text-xs tracking-widest mt-1">{author.role}</p>
-            </div>
-          </AppFadeIn>
-        ))}
-      </div>
-    </AppSection>
-  );
-};
 
 const Testimonials = () => {
   const reviews = [
@@ -435,10 +399,9 @@ const Pricing = () => (
             <span className="text-brand-dark font-medium uppercase tracking-tighter">Por apenas</span>
             <div className="flex items-baseline gap-2">
               <span className="text-3xl font-bold text-brand-dark">R$</span>
-              <span className="text-7xl md:text-8xl font-black text-brand-dark tracking-tighter">67,00</span>
+              <span className="text-7xl md:text-8xl font-black text-brand-dark tracking-tighter">47,00</span>
             </div>
           </div>
-          <p className="text-brand-gold font-bold mt-6 text-xl">Ou <span className="text-brand-dark">7x de R$ 10,74</span></p>
         </div>
 
         <AppButton variant="gold" className="w-full mb-8 py-7 text-xl shadow-[0_20px_40px_rgba(212,175,55,0.4)]">
@@ -543,35 +506,6 @@ const ContactCTA = () => (
   </AppSection>
 );
 
-const FloatingCTA = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setIsVisible(window.scrollY > 800);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div 
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 100, opacity: 0 }}
-          className="fixed bottom-8 left-0 w-full px-6 z-50 pointer-events-none flex justify-center"
-        >
-          <div className="max-w-md w-full pointer-events-auto">
-            <AppButton variant="gold" className="w-full py-5 text-sm md:text-base border-2 border-white/20">
-              <CreditCard size={18} />
-              COMPRAR EBOOK AGORA
-            </AppButton>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-};
 
 // --- Main App ---
 
@@ -607,14 +541,11 @@ export default function App() {
       <WhatYouWillLearn />
       <Benefits />
       <ImpactQuote />
-      <Authors />
       <Testimonials />
       <Pricing />
       <Guarantee />
       <FAQ />
       <ContactCTA />
-
-      <FloatingCTA />
 
       <footer className="bg-[#0F1D30] py-12 px-6 border-t border-white/5">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
