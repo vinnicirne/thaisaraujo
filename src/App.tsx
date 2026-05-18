@@ -65,17 +65,27 @@ const AppSection = ({ children, className = "", id = "" }: { children: React.Rea
   </section>
 );
 
-const AppButton = ({ children, className = "", variant = "primary", onClick }: { children: React.ReactNode, className?: string, variant?: "primary" | "gold" | "outline", onClick?: () => void }) => {
+const AppButton = ({ children, className = "", variant = "primary", onClick, href }: { children: React.ReactNode, className?: string, variant?: "primary" | "gold" | "outline", onClick?: () => void, href?: string }) => {
   const variants = {
     primary: "bg-brand-dark text-white hover:bg-brand-medium shadow-lg hover:shadow-xl",
     gold: "gold-gradient text-brand-dark font-bold hover:scale-105 shadow-lg",
     outline: "border-2 border-brand-dark text-brand-dark hover:bg-brand-dark hover:text-white"
   };
 
+  const combinedClassName = `px-8 py-4 rounded-full transition-all duration-300 uppercase tracking-wider text-sm font-semibold flex items-center justify-center gap-2 ${variants[variant]} ${className}`;
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={combinedClassName}>
+        {children}
+      </a>
+    );
+  }
+
   return (
     <button 
       onClick={onClick}
-      className={`px-8 py-4 rounded-full transition-all duration-300 uppercase tracking-wider text-sm font-semibold flex items-center justify-center gap-2 ${variants[variant]} ${className}`}
+      className={combinedClassName}
     >
       {children}
     </button>
@@ -105,7 +115,7 @@ const Hero = () => (
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 mb-10">
-          <AppButton variant="gold" className="w-full sm:w-auto shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+          <AppButton variant="gold" className="w-full sm:w-auto shadow-[0_0_30px_rgba(212,175,55,0.4)]" href="https://pay.kiwify.com.br/mB2SvDz">
             QUERO ME LIBERTAR AGORA
             <ArrowRight size={18} />
           </AppButton>
@@ -313,7 +323,7 @@ const Benefits = () => {
           ))}
         </div>
         <div className="mt-16">
-          <AppButton variant="gold" className="mx-auto">
+          <AppButton variant="gold" className="mx-auto" href="https://pay.kiwify.com.br/mB2SvDz">
             QUERO ESSES RESULTADOS
             <ArrowRight size={18} />
           </AppButton>
@@ -404,7 +414,7 @@ const Pricing = () => (
           </div>
         </div>
 
-        <AppButton variant="gold" className="w-full mb-8 py-7 text-xl shadow-[0_20px_40px_rgba(212,175,55,0.4)]">
+        <AppButton variant="gold" className="w-full mb-8 py-7 text-xl shadow-[0_20px_40px_rgba(212,175,55,0.4)]" href="https://pay.kiwify.com.br/mB2SvDz">
           QUERO COMEÇAR MINHA CURA
           <Zap size={24} fill="currentColor" />
         </AppButton>
@@ -498,7 +508,7 @@ const ContactCTA = () => (
       <p className="text-brand-light/70 text-xl max-w-xl mx-auto mb-12">
         Abrace a jornada para a sua versão mais forte e livre que já existiu.
       </p>
-      <AppButton variant="gold" className="mx-auto py-6 px-12 text-lg">
+      <AppButton variant="gold" className="mx-auto py-6 px-12 text-lg" href="https://pay.kiwify.com.br/mB2SvDz">
         QUERO COMEÇAR MINHA CURA
         <Sparkles size={20} />
       </AppButton>
@@ -524,7 +534,7 @@ export default function App() {
               <span className="text-brand-gold text-[10px] uppercase font-bold tracking-[0.2em] drop-shadow-sm">Narcisista</span>
             </div>
           </div>
-          <AppButton variant="gold" className="hidden md:flex px-8 py-3 text-xs shadow-xl">
+          <AppButton variant="gold" className="hidden md:flex px-8 py-3 text-xs shadow-xl" href="https://pay.kiwify.com.br/mB2SvDz">
             Comprar eBook
           </AppButton>
           <div className="md:hidden">
