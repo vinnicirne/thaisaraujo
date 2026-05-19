@@ -409,7 +409,7 @@ const Pricing = () => (
             <span className="text-brand-dark font-medium uppercase tracking-tighter">Por apenas</span>
             <div className="flex items-baseline gap-2">
               <span className="text-3xl font-bold text-brand-dark">R$</span>
-              <span className="text-7xl md:text-8xl font-black text-brand-dark tracking-tighter">47,00</span>
+              <span className="text-7xl md:text-8xl font-black text-brand-dark tracking-tighter">17,00</span>
             </div>
           </div>
         </div>
