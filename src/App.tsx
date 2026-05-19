@@ -560,7 +560,7 @@ export default function App() {
       <footer className="bg-[#0F1D30] py-12 px-6 border-t border-white/5">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-white/60 text-sm">
-            &copy; 2024 - O Fim do Jogo Narcisista. Todos os direitos reservados.
+            &copy; 2026 - O Fim do Jogo Narcisista. Todos os direitos reservados.
           </div>
           <div className="flex gap-6 text-white/40 text-xs uppercase tracking-widest font-bold">
             <a href="#" className="hover:text-brand-gold">Políticas de Privacidade</a>
